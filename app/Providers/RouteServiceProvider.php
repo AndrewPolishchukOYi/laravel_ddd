@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Domain\Models\Article;
+use App\Domain\Models\Category;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -23,8 +25,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
     }
 
@@ -67,7 +67,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::prefix('api')
              ->middleware('api')
-             ->namespace($this->namespace)
+             ->namespace('App\UI\Api\Controllers')
              ->group(base_path('routes/api.php'));
     }
 }
